@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns:control="sap.gantt.control"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <Dialog title="{i18n>orders}">
+
+        <Table items="{jsonEmployees>Orders}" width="700px">
+
+            <columns>
+
+                <Column >
+                    <header>
+                        <Label text="{i18n>OrderID}"/>
+                    </header>
+                </Column>
+
+                <Column >
+                    <header>
+                        <Label text="{i18n>Freight}"/>
+                    </header>
+                </Column>
+
+                <Column >
+                    <header>
+                        <Label text="{i18n>ShipAddress}"/>
+                    </header>
+                </Column>
+
+            </columns>
+
+            <items >
+                <ColumnListItem >
+                    <cells>
+                        <Label text="{jsonEmployees>OrderId}"/>
+                        <Label text="{jsonEmployees>Freight}"/>
+                        <Label text="{jsonEmployees>ShipAddress}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+
+        </Table>
+
+        <endButton>
+
+        <Button  text="{i18n>close}" press="onCloseOrders">
+
+
+        </Button>
+        
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>    

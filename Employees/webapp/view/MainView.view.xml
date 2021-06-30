@@ -9,17 +9,18 @@
                     <content>
                         <HBox visible="true" busy="false">
                             <Label id="labelEmployee" text="{i18n>labelEmployee}" class="sapUiSmallMargin" labelFor="InputEmployee"/>
-                            <Input id="InputEmployee" maxLength="6" width="200px" class="sapUiSmallMarginEnd" liveChange="onValidate"/>
-                            <Label id="labelCountry" text="{i18n>labelCountry}" class="sapUiSmallMargin" labelFor="slCountry" visible="false"/>
-                            <Select id="slCountry" forceSelection="false" visible="false">
+                            <Input id="InputEmployee" value="{jsonCountries>/EmployeeId}" maxLength="6" width="200px" class="sapUiSmallMarginEnd"/>
+                            <Label id="labelCountry" text="{i18n>labelCountry}" class="sapUiSmallMargin" labelFor="slCountry" visible="true"/>
+                            <Select id="slCountry" selectedKey="{jsonCountries>/CountryKey}" forceSelection="false" items ="{jsonCountries>/ListCountry}" visible="true">
                                 <items>
-                                    <core:Item key="US" text="{i18n>countryUS}"/>
-                                    <core:Item key="UK" text="{i18n>countryUK}"/>
-                                    <core:Item key="ES" text="{i18n>countryES}"/>
+                                    <core:Item key="{jsonCountries>Key}" text="{jsonCountries>Text}"/>
                                 </items>
                             </Select>
-                        </HBox>
+                            <Button id="btnFilter" text="{i18n>btnFilter}" icon="sap-icon://search" press="onFilter" class="sapUiSmallMarginEnd"/>
+                            <Button id="btnClearFilter" text="{i18n>btnClearFilter}" icon="sap-icon://clear-filter" press="onClearFilter" class="sapUiSmallMarginEnd"/>
 
+                        </HBox>
+                        <core:Fragment fragmentName="logaligroup10.Employees.fragment.TableEmployee" type="XML"/>
                     </content>
                 </Page>
             </pages>
